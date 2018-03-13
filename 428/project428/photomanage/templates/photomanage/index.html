@@ -1,0 +1,47 @@
+{% extends "photomanage/base.html" %}
+  
+{% block title %}URL Shortner - Make your URL shorter!{% endblock %}
+  
+{% block content %}
+<script type="text/javascript">
+	var HttpClient = function() {
+    this.get = function(aUrl, aCallback) {
+        var anHttpRequest = new XMLHttpRequest();
+        anHttpRequest.onreadystatechange = function() { 
+            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                aCallback(anHttpRequest.responseText);
+        }
+
+        anHttpRequest.open( "GET", aUrl, true );            
+        anHttpRequest.send( null );
+    }
+	}
+	var client = new HttpClient();
+	var all_photos;
+	client.get('/get_all_photos/', function(response) {
+		all_photos=response;
+		var myJSONText = JSON.parse(response);
+		var par = document.getElementById('imageDiv');
+	
+	for(var i=0;i<myJSONText.length;i++){
+		console.log(myJSONText[i])
+		var img = document.createElement('img');
+		img.src = myJSONText[i]['url'];
+		par.appendChild(img);
+	}
+	});
+	
+
+</script>
+
+<div class="panel panel-default">
+ <div class="panel-body">
+ <div class="col-sm-9">
+ 	<div id="imageDiv"></div>
+ </div>
+ <div class="col-sm-3">
+ {% csrf_token %}
+ </div>
+ </div>
+</div>
+{% endblock %}
