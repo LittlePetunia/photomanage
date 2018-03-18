@@ -1,9 +1,16 @@
 {% extends "photomanage/base.html" %}
   
-{% block title %}URL Shortner - Make your URL shorter!{% endblock %}
+{% block title %}Photo Manager{% endblock %}
   
 {% block content %}
 <script type="text/javascript">
+	// make Flickity a jQuery plugin
+jQueryBridget( 'flickity', Flickity, $ );
+$( function() {
+  var $gallery = $('.gallery').flickity({
+    cellSelector: '.gallery-cell'
+  })
+});
 	var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
         var anHttpRequest = new XMLHttpRequest();
@@ -24,10 +31,14 @@
 		var par = document.getElementById('imageDiv');
 	
 	for(var i=0;i<myJSONText.length;i++){
-		console.log(myJSONText[i])
-		var img = document.createElement('img');
+		var div = document.createElement("div");
+		// div.class = "gallery-cell";
+		// var img = document.createElement('img');
+		var img=document.getElementById(myJSONText[i]['id'])
 		img.src = myJSONText[i]['url'];
-		par.appendChild(img);
+		img.alt=myJSONText[i]['id'];
+		// div.appendChild(img);
+		// par.appendChild(div);
 	}
 	});
 	
@@ -36,10 +47,44 @@
 
 <div class="panel panel-default">
  <div class="panel-body">
- <div class="col-sm-9">
- 	<div id="imageDiv"></div>
- </div>
- <div class="col-sm-3">
+ 	 <div class="row">
+ 		<div class="col-sm-3">
+ 			<div class="panel panel-info">
+  				<div class="panel-heading">Categories</div>
+  				<div class="panel-body">
+  					<button type="button" class="btn btn-info">1. Wildlife</button>
+  					<button type="button" class="btn btn-info">2. Portrait</button>
+  				</div>
+				</div>
+ 		</div>
+ 		<div class="col-sm-9">
+			<div id="imageDiv" class="gallery">
+			  <div class="gallery-cell">
+			    <img src="" id="1" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="2" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="3" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="4" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="5" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="6" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="7" />
+			  </div>
+			</div>
+
+ 		</div>
+ 	</div>
+ 
  {% csrf_token %}
  </div>
  </div>
