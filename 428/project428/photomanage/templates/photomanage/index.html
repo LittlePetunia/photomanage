@@ -5,12 +5,17 @@
 {% block content %}
 <script type="text/javascript">
 	// make Flickity a jQuery plugin
-jQueryBridget( 'flickity', Flickity, $ );
-$( function() {
-  var $gallery = $('.gallery').flickity({
-    cellSelector: '.gallery-cell'
-  })
-});
+
+// var flkty;
+// jQueryBridget( 'flickity', Flickity, $ );
+// $( function() {
+//   var $gallery = $('.gallery').flickity({
+//     cellSelector: '.gallery-cell'
+//   })
+//   var flkty = $gallery.data('flickity');
+//   console.log(flkty.selectedElement);
+// });
+
 	var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
         var anHttpRequest = new XMLHttpRequest();
@@ -66,19 +71,19 @@ $( function() {
 			    <img src="" id="2" />
 			  </div>
 			  <div class="gallery-cell">
-			    <img src="" id="3" />
+			    <img src="" id="" />
 			  </div>
 			  <div class="gallery-cell">
-			    <img src="" id="4" />
+			    <img src="" id="" />
 			  </div>
 			  <div class="gallery-cell">
-			    <img src="" id="5" />
+			    <img src="" id="" />
 			  </div>
 			  <div class="gallery-cell">
-			    <img src="" id="6" />
+			    <img src="" id="" />
 			  </div>
 			  <div class="gallery-cell">
-			    <img src="" id="7" />
+			    <img src="" id="" />
 			  </div>
 			</div>
 

@@ -15,13 +15,39 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <script type="text/javascript">
+	var $current;
+	jQueryBridget( 'flickity', Flickity, $ );
+  	var $gallery;
+
+  	$( document ).ready(function() {
+	    $gallery=$('.gallery').flickity({
+	    cellSelector: '.gallery-cell'
+	  	})
+	  	$current = $gallery.data('flickity');
+	  	console.log($current.selectedElement);
+	});
+
+  	var next_button = document.getElementsByClassName("flickity-button flickity-prev-next-button next");
+
+  	$(function(){
+    $(next_button).on('click', function(){
+       	$current = $gallery.data('flickity');
+       	
+    	});
+	});
+	
+
+
 	document.addEventListener('keydown', function(event) {
     if(event.keyCode == 49) {
         alert('wildlife assigned');
+        console.log($current.selectedElement);
     }
     else if(event.keyCode == 50) {
         alert('po assigned');
     }
+
+    
 });
 
 </script>
