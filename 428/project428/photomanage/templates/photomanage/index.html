@@ -3,18 +3,47 @@
 {% block title %}Photo Manager{% endblock %}
   
 {% block content %}
-<script type="text/javascript">
-	// make Flickity a jQuery plugin
+<style>
+.album {
+  width: 640px;
+  margin: 0 auto;
+  padding: 5px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.3);
+}
 
-// var flkty;
-// jQueryBridget( 'flickity', Flickity, $ );
-// $( function() {
-//   var $gallery = $('.gallery').flickity({
-//     cellSelector: '.gallery-cell'
-//   })
-//   var flkty = $gallery.data('flickity');
-//   console.log(flkty.selectedElement);
-// });
+.album > div {
+  position: relative;
+  float: left;
+  padding: 5px;
+}
+
+.album > div > img {
+  display: block;
+  width: 200px;
+  transition: .1s transform;
+  transform: translateZ(0); /* hack */
+}
+
+.album > div:hover {
+  z-index: 1;
+}
+
+.album> div:hover > img {
+  transform: scale(1.7,1.7);
+  transition: .3s transform;
+}
+
+.cf:before, .cf:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+
+.cf:after {
+  clear: both;
+}
+</style>
+<script type="text/javascript">
 
 	var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
@@ -46,19 +75,42 @@
 		// par.appendChild(div);
 	}
 	});
+
+	function filter(code){
+		var client = new HttpClient();
+		var wildlife_photos;
+		client.get('/get_photos_by_category/'+code.toString(), function(response) {
+			wildlife_photos=response;
+			var myJSONText = JSON.parse(response);
+			var par = document.getElementById('album');
+			par.innerHTML="";
+		
+		for(var i=0;i<myJSONText.length;i++){
+			var div = document.createElement("div");
+			var img = document.createElement('img');
+			img.src = myJSONText[i]['url'];
+			img.alt=myJSONText[i]['id'];
+			div.appendChild(img)
+			par.appendChild(div)
+		}
+		});
+
+	}
+
+
 	
 
 </script>
 
-<div class="panel panel-default">
+<div class="panel panel-info">
  <div class="panel-body">
  	 <div class="row">
  		<div class="col-sm-3">
  			<div class="panel panel-info">
   				<div class="panel-heading">Categories</div>
   				<div class="panel-body">
-  					<button type="button" class="btn btn-info">1. Wildlife</button>
-  					<button type="button" class="btn btn-info">2. Portrait</button>
+  					<button type="button" class="btn btn-info" onclick="filter(1)">1. Wildlife</button>
+  					<button type="button" class="btn btn-info" onclick="filter(2)">2. Portrait</button>
   				</div>
 				</div>
  		</div>
@@ -87,6 +139,19 @@
 			  </div>
 			</div>
 
+ 		</div>
+ 	</div>
+ 	<br>
+ 	<br>
+ 	<br>
+ 	<div class="row">
+ 		<div class="panel panel-info">
+  				<div class="panel-heading">
+  					Album by Categories
+  				</div>
+  				<div class="panel-body">
+  					<div id="album" class="album cf"></div>
+  				</div>
  		</div>
  	</div>
  

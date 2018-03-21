@@ -4,9 +4,7 @@ urlpatterns = patterns('photomanage.views',
     url(r'^$', 'index', name='home'),
     # for our home/index page
  
-    # url(r'^(?P&lt;short_id&gt;\w{6})$', 'add_category', name='addcategory'),
-    url(r'^add_category/(?P<photo_id>\d)/(?P<category_code>\d)$', 'add_category', name='pay_summary'),
-    # # when short URL is requested it redirects to original URL
- 
+    url(r'^add_category/(?P<photo_id>\d)/(?P<category_code>\d)$', 'add_category', name='addcategory'),
     url(r'^get_all_photos/$', 'get_all_photos', name='getallphotos'),
+    url(r'^get_photos_by_category/(?P<category_code>\d)$', 'get_photos_by_category', name='getphotosbycategory'),
     )
