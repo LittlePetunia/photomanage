@@ -25,6 +25,7 @@
 	  	})
 	  	$current = $gallery.data('flickity');
 	  	console.log($current.selectedElement);
+	  	console.log($current.selectedElement.childNodes[1].id);
 	});
 
   	var next_button = document.getElementsByClassName("flickity-button flickity-prev-next-button next");
@@ -37,17 +38,18 @@
 	});
 	
 
-
 	document.addEventListener('keydown', function(event) {
     if(event.keyCode == 49) {
         alert('wildlife assigned');
-        console.log($current.selectedElement);
+        var url = '/add_category/'+$current.selectedElement.childNodes[1].id+"/1"
+        $.post( url );
     }
     else if(event.keyCode == 50) {
         alert('po assigned');
+        var url = '/add_category/'+$current.selectedElement.childNodes[1].id+"/2"
+        $.post( url );
     }
-
-    
+   
 });
 
 </script>
