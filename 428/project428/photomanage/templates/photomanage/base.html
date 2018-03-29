@@ -32,8 +32,7 @@
 	    cellSelector: '.gallery-cell'
 	  	})
 	  	$current = $gallery.data('flickity');
-	  	console.log($current.selectedElement);
-	  	console.log($current.selectedElement.childNodes[1].id);
+	  	
 	});
 
   	var next_button = document.getElementsByClassName("flickity-button flickity-prev-next-button next");
@@ -41,6 +40,8 @@
   	$(function(){
     $(next_button).on('click', function(){
        	$current = $gallery.data('flickity');
+        console.log($current.selectedElement);
+        console.log($current.selectedElement.childNodes[1].id);
        	
     	});
 	});

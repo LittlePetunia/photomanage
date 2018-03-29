@@ -66,14 +66,11 @@
 	
 	for(var i=0;i<myJSONText.length;i++){
 		var div = document.createElement("div");
-		// div.class = "gallery-cell";
-		// var img = document.createElement('img');
 		var img=document.getElementById(myJSONText[i]['id'])
 		img.src = myJSONText[i]['url'];
 		img.alt=myJSONText[i]['id'];
-		// div.appendChild(img);
-		// par.appendChild(div);
-	}
+
+		}
 	});
 
 	function reset(){
