@@ -59,12 +59,27 @@
     if(event.keyCode == 49) {
         var url = '/add_category/'+$current.selectedElement.childNodes[1].id+"/1"
         $.post( url );
-        noti("Wildlife", "success");
+        noti("Landscapes", "success");
     }
     else if(event.keyCode == 50) {
         var url = '/add_category/'+$current.selectedElement.childNodes[1].id+"/2"
         $.post( url );
-        noti("Portrait", "success");
+        noti("People", "success");
+    }
+    else if(event.keyCode == 51) {
+        var url = '/add_category/'+$current.selectedElement.childNodes[1].id+"/3"
+        $.post( url );
+        noti("City scapes", "success");
+    }
+    else if(event.keyCode == 52) {
+        var url = '/add_category/'+$current.selectedElement.childNodes[1].id+"/4"
+        $.post( url );
+        noti("Still life", "success");
+    }
+    else if(event.keyCode == 53) {
+        var url = '/add_category/'+$current.selectedElement.childNodes[1].id+"/5"
+        $.post( url );
+        noti("Animals", "success");
     }
   });
 

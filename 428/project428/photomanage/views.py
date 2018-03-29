@@ -7,7 +7,7 @@ from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 
 
-categorys={1:"wildlife",2:"portrait"}
+categorys={1:"landscapes",2:"people", 3:"cityscapes", 4:"stilllife",5:"animals"}
 # Create your views here.
 def index(request):
     c = {}
