@@ -30,6 +30,13 @@ def get_photos_by_category(request,category_code):
 		response_data.append(to_use)
 	return HttpResponse(json.dumps(response_data),  content_type="application/json")
 
+def reset_category(request):
+	all_photos = Photos.objects.all()
+	for p in all_photos:
+		p.category=''
+		p.save()
+	return HttpResponse(json.dumps({'res':'resetted'}),  content_type="application/json")
+
 @csrf_exempt
 def add_category(request, photo_id, category_code):
 	photo = Photos.objects.get(id=photo_id)

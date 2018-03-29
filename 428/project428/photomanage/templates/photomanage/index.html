@@ -76,6 +76,18 @@
 	}
 	});
 
+	function reset(){
+		client.get('/reset_category/', function(response) {
+			new PNotify({
+		        title: "Reset",
+		        text: "All Categories reseted",
+		        type: "success",
+		        delay: 600
+		      })
+		});
+		
+	}
+
 	function filter(code){
 		var client = new HttpClient();
 		var wildlife_photos;
@@ -112,7 +124,10 @@
   					<button type="button" class="btn btn-info" onclick="filter(1)">1. Wildlife</button>
   					<button type="button" class="btn btn-info" onclick="filter(2)">2. Portrait</button>
   				</div>
-				</div>
+  				<div class="panel-body">
+  					<button type="button" class="btn btn-danger" onclick="reset()">Reset</button>
+  				</div>
+			</div>
  		</div>
  		<div class="col-sm-9">
 			<div id="imageDiv" class="gallery">
@@ -123,19 +138,58 @@
 			    <img src="" id="2" />
 			  </div>
 			  <div class="gallery-cell">
-			    <img src="" id="" />
+			    <img src="" id="3" />
 			  </div>
 			  <div class="gallery-cell">
-			    <img src="" id="" />
+			    <img src="" id="4" />
 			  </div>
 			  <div class="gallery-cell">
-			    <img src="" id="" />
+			    <img src="" id="5" />
 			  </div>
 			  <div class="gallery-cell">
-			    <img src="" id="" />
+			    <img src="" id="6" />
 			  </div>
 			  <div class="gallery-cell">
-			    <img src="" id="" />
+			    <img src="" id="7" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="8" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="9" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="10" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="11" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="12" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="13" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="14" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="15" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="16" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="17" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="18" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="19" />
+			  </div>
+			  <div class="gallery-cell">
+			    <img src="" id="20" />
 			  </div>
 			</div>
 
