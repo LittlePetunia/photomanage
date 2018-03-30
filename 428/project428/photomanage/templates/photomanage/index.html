@@ -43,6 +43,45 @@
 .cf:after {
   clear: both;
 }
+
+.relative {
+  position: relative;
+  width: 380px;
+  margin-top: 5px;
+  margin-bottom: 7px;
+}
+.name {
+  font-size: 3rem;
+  font-family: 'VT323', monospace;
+  letter-spacing: 3px;
+}
+@keyframes steps {
+  from { width: 380px }
+    to { width: 0 }
+}
+.step {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 40px;
+  width: 380px;
+  background: #fff;
+  animation: steps 5s 2s steps(8) infinite
+}
+.step::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  background: #000;
+  top: 10px;
+  animation: barra .5s infinite
+}
+@keyframes barra {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+}
+
 </style>
 <script type="text/javascript">
 
@@ -106,14 +145,19 @@
 		});
 
 	}
-
-
 	
-
 </script>
-<div class="page-header">
-  <h1>Example page header <small>Subtext for header</small></h1>
+<div class="row">
+	<div class="col-md-8">
+		<div class="relative">
+		  <div class="name">Photo Manager</div>
+		  <div class="step"></div>
+		</div>
+	</div>
+	<div class="col-md-3">
+	</div>
 </div>
+
 <div class="panel panel-info">
  <div class="panel-body">
  	 <div class="row">
