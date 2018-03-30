@@ -34,7 +34,6 @@ pip install Django==1.9
 
 * **Qiao Song** 
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## Librarys
 
