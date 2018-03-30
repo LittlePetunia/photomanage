@@ -165,10 +165,10 @@
  			<div class="panel panel-info">
   				<div class="panel-heading">Categories</div>
   				<div class="panel-body">
-  					<button type="button" class="btn btn-info" onclick="filter(1)">1. Landscapes</button>
-  					<button type="button" class="btn btn-info" onclick="filter(2)">2. People</button>
-  					<button type="button" class="btn btn-info" onclick="filter(3)">3. City scapes</button>
-  					<button type="button" class="btn btn-info" onclick="filter(4)">4. Still life</button>
+  					<button type="button" class="btn btn-info" onclick="filter(1)">1. Landscapes</button> <br><br>
+  					<button type="button" class="btn btn-info" onclick="filter(2)">2. People</button><br><br>
+  					<button type="button" class="btn btn-info" onclick="filter(3)">3. City scapes</button><br><br>
+  					<button type="button" class="btn btn-info" onclick="filter(4)">4. Still life</button><br><br>
   					<button type="button" class="btn btn-info" onclick="filter(5)">5. Animals </button>
   				</div>
   				<div class="panel-body">
@@ -242,12 +242,13 @@
 
  		</div>
  	</div>
+ 	</div>
  	<br>
  	<br>
  	<br>
- 	<div class="row">
- 		<div class="panel panel-info">
-  				<div class="panel-heading">
+ 	<div class="row" style="margin:10px">
+ 		<div class="panel panel-info" >
+  				<div class="panel-heading" >
   					Album by Categories
   				</div>
   				<div class="panel-body">
@@ -257,7 +258,6 @@
  	</div>
  
  {% csrf_token %}
- </div>
  </div>
 </div>
 {% endblock %}
