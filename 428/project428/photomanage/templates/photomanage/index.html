@@ -63,7 +63,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  height: 40px;
+  height: 42px;
   width: 380px;
   background: #fff;
   animation: steps 5s 2s steps(8) infinite
@@ -145,6 +145,29 @@
 		});
 
 	}
+
+	function custome_category(){
+		var new_ca = document.getElementById("add_category").value;
+		var url = '/custome_category/'+ new_ca
+
+		var buttons = document.getElementById("cate_button");
+		var new_button = document.createElement("button");
+		new_button.setAttribute('class', "btn btn-info");
+		
+		var new_code;
+		
+		$.post(url, function(res){
+        	new_code = res['res'];
+
+        	int_code = parseInt(new_code);
+        	new_button.setAttribute('onclick', "filter(int_code)") ;
+        	new_button.innerText = new_code + '.'+new_ca;
+    		buttons.appendChild(new_button);
+    	});
+
+
+		
+	}
 	
 </script>
 <div class="row" style="width: 90%">
@@ -164,12 +187,15 @@
  		<div class="col-sm-3">
  			<div class="panel panel-info">
   				<div class="panel-heading">Categories</div>
-  				<div class="panel-body">
+  				<div class="panel-body" id="cate_button">
   					<button type="button" class="btn btn-info" onclick="filter(1)">1. Landscapes</button> <br><br>
   					<button type="button" class="btn btn-info" onclick="filter(2)">2. People</button><br><br>
   					<button type="button" class="btn btn-info" onclick="filter(3)">3. City scapes</button><br><br>
   					<button type="button" class="btn btn-info" onclick="filter(4)">4. Still life</button><br><br>
   					<button type="button" class="btn btn-info" onclick="filter(5)">5. Animals </button>
+					<br><br>
+  					<input type="text" placeholder="Add Category..." id="add_category">
+  					<button type="button" class="btn btn-info" onclick="custome_category()"> + </button>
   				</div>
   				<div class="panel-body">
   					<button type="button" class="btn btn-danger" onclick="reset()">Reset</button>

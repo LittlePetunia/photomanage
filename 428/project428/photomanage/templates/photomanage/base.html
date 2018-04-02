@@ -82,6 +82,21 @@
         $.post( url );
         noti("Animals", "success");
     }
+    else if(event.keyCode == 54) {
+        var url = '/add_category/'+$current.selectedElement.childNodes[1].id+"/6"
+        $.post( url );
+        noti("Category assigned", "success");
+    }
+    else if(event.keyCode == 55) {
+        var url = '/add_category/'+$current.selectedElement.childNodes[1].id+"/7"
+        $.post( url );
+        noti("Category assigned", "success");
+    }
+    else if(event.keyCode == 56) {
+        var url = '/add_category/'+$current.selectedElement.childNodes[1].id+"/8"
+        $.post( url );
+        noti("Category assigned", "success");
+    }
   });
 //   <header>
 //  <h1><a href="{% url 'photomanage:home' %}">Manage Photo</a></h1>

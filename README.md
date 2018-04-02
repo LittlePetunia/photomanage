@@ -1,6 +1,8 @@
 # Photo Manager
-
 This Demo page is used for CSC428 Project 2. 
+
+## Github Repo
+https://github.com/LittlePetunia/photomanage
 
 ## Getting Started
 
@@ -40,4 +42,5 @@ pip install Django==1.9
 Used librarys:
 https://github.com/sciactive/pnotify
 https://flickity.metafizzy.co/
+
 

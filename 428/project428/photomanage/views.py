@@ -43,5 +43,14 @@ def add_category(request, photo_id, category_code):
 	photo.category = categorys[int(category_code)]
 	photo.save()
 	return HttpResponse()
+@csrf_exempt
+def custome_category(request, category):
+	inds=sorted(categorys.keys())
+	new_key = inds[-1]+1
+	categorys[new_key] = category
+	print categorys
+
+	return HttpResponse(json.dumps({'res':str(new_key)}),  content_type="application/json")
+
 
 
